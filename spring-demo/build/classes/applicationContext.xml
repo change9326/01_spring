@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<!-- id:唯一标识 ，可以通过该标识获取java实例 -->
+	<!-- class:配置要实例化的java类全类名 -->
+	<!-- <bean id="customerDao" class="dao.JdbcCustomerDaoImpl" ></bean> -->
+	<bean id="customerDao" class="dao.DbUtilsCustomerDaoImpl"></bean>
+	
+	<bean id="customerService" class="service.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao"></property>
+	</bean>
+
+</beans>
